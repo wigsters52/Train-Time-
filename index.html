@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Choo Choo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+    <!-- Main Bootstrap Search -->
+    <div class="container">
+
+        <!-- Jumbotron for Title -->
+        <div class="jumbotron" style="background-color: green ; color: white;">
+            <h1 class="text-center">
+                <strong>
+                    <i class="fa fa-newspaper-o"></i> Anytime is Train Time!</strong>
+            </h1>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                            <i class="fa fa-list-alt"></i>Current Train TIme</strong>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Here we create an HTML Form for handling the inputs-->
+                        <form role="form">
+
+                            <!-- Here we create the text box for capturing the search term-->
+                            <div class="form-group">
+                                <label for="search">Train Name</label>
+                                <input type="text" class="form-control" id="trainName">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="search">Destination</label>
+                                <input type="text" class="form-control" id="destination">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="search">First Train Time (HH:mm - Military Time) </label>
+                                <input type="time" name='entry_time' class="form-control" id="firstTrainTime" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="search">Frequency (min)</label>
+                                <input type="text" class="form-control" id="frequency">
+                            </div>
+
+                            <button type="submit" class="btn btn-default" id="submitButton">
+                                <i class="fa fa-submit"></i> Submit</button>
+                            <button class="btn btn-default" id="clear-all">
+                                <i class="fa fa-trash"></i> Clear Results</button>
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>
+                                <i class="fa fa-list-alt"></i>Current Train Schedule</strong>
+                        </div>
+                        <div class="card-body">
+
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination</th>
+                                        <th scope="col">Frequency (min)</th>
+                                        <th scope="col">Next Arrival</th>
+                                        <th scope="col">Minutes Away</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tableBody">
+
+
+                                </tbody>
+
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"
+    integrity="sha256-wCBClaCr6pJ7sGU5kfb3gQMOOcIZNzaWpWcj/lD9Vfk=" crossorigin="anonymous"></script>
+<script src="javascript/app.js"></script>
+
+</html>
