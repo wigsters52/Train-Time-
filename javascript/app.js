@@ -14,25 +14,26 @@ firebase.initializeApp(firebaseConfig)
 const database = firebase.database()
 
 $('#submitButton').on('click', function (event) {
-  event.PreventDefault()
-  let trainName = $('trainName').val().trim()
-  let destination = $('destination').val().trim()
-  let firstTrainTime = $('firstTrainTime').val().trim()
-  let frequency = $('frequency').val().trim()
+  event.preventDefault()
 
-  var newTrain = {
+  let trainName = $('#trainName').val().trim()
+  let destination = $('#destination').val().trim()
+  let firstTrainTime = $('#firstTrainTime').val().trim()
+  let frequency = $('#frequency').val().trim()
+
+  let newTrain = {
     name: trainName,
     destination: destination,
     time: firstTrainTime,
     frequency: frequency
 
   }
-  datebase.ref().push(newTrain)
-
-  $('trainName').val('')
-  $('destination').val('')
-  $('firstTrainTime').val('')
-  $('frequency').val('')
+  database.ref().push(newTrain)
+  // Clears all of the text-boxes
+  $('#trainName').val('')
+  $('#destination').val('')
+  $('#firstTrainTime').val('')
+  $('#frequency').val('')
 })
 
 database.ref().on('child_added', function (childSnapshot) {
@@ -46,14 +47,13 @@ database.ref().on('child_added', function (childSnapshot) {
   var newRow = $('<tr>').append(
     $('<td>').text(trainName),
     $('<td>').text(destination),
-    $('<td>').text(frequency),
-    $('<td>').text(nextArrival),
-    $('<td>').text(minutesAway)
+    $('<td>').text(frequency)
+    // $('<td>').text(nextArrival),
+    // $('<td>').text(minutesAway)
   )
 
   // Append the new row to the table
   $('#tableBody > tbody').append(newRow)
-
 })
 
 // calculate when the next train will arrive.
