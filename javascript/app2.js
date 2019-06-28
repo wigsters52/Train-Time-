@@ -19,7 +19,7 @@ $('#submitButton').on('click', function (event) {
   let trainName = $('#trainName').val().trim()
   let destination = $('#destination').val().trim()
   let firstTrainTime = $('#firstTrainTime').val().trim()
-  let frequency = $('#frequency').val().trim()
+  let frequency = $.isNumeric('#frequency').val().trim()
 
   let newTrain = {
     name: trainName,
